@@ -2,6 +2,8 @@
 # -*- coding:utf8 -*-
 import os
 
+#统计有多少行有效代码，除去空格大括号
+
 global total_count
 global space_count
 
@@ -31,7 +33,7 @@ def forFirle(prentDir):
 
 
 def isRealyCode(lineStr):
-    if lineStr.isspace() or lineStr == "{" or lineStr == "}":
+    if lineStr.isspace() or lineStr == "{" or lineStr == "}" or lineStr.startswith("import "):
         global space_count
         space_count+=1
         return False
@@ -39,5 +41,5 @@ def isRealyCode(lineStr):
 
 
 forFirle(fileDir)
-print("最终多少行有效代码：" + str(total_count)+",有多少空格或{}："+str(space_count))
+print("最终多少行有效代码：" + str(total_count)+",有多少空格或{}："+str(space_count)+",总计："+str(total_count+space_count))
 input()
