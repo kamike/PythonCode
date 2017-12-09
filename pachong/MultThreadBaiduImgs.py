@@ -111,6 +111,7 @@ if __name__ == '__main__':
     index = 0
     for url in urls:
         print("正在请求：", url)
+
         html = requests.get(url, timeout=10).content.decode('utf-8')
         imgUrls = resolveImgUrl(html)
         if len(imgUrls) == 0:  # 没有图片则结束
