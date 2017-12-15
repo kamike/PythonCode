@@ -3,13 +3,17 @@
 import os
 import configparser
 
-conf = configparser.ConfigParser()
-file=os.getcwd()+"/Config.conf";
+from aip import AipOcr
+import json
+import re
 
-conf.read(file)
-session=conf.sections()
-print("section",session)
-print(conf.get("baidu","a"))
+# conf = configparser.ConfigParser()
+# file=os.getcwd()+"/Config.conf";
+#
+# conf.read(file)
+# session=conf.sections()
+# print("section",session)
+# print(conf.get("baidu","a"))
 
 
 
@@ -23,5 +27,16 @@ print(conf.get("baidu","a"))
 #     'language_type': 'CHN_ENG',
 # }
 # resoult = client.basicGeneral(imgUrl, options)
-#
-# print(resoult)
+
+
+
+jsonStr="{'log_id': 1902239055352749612, 'direction': 0, 'words_result_num': 2, 'words_result': [{'words': '再不走'}, {'words': '就打死你'}]}"
+jsonStr=re.sub("'","\"",jsonStr)
+print(jsonStr)
+resoult=json.loads(jsonStr)
+
+print(resoult['log_id'])
+print(resoult['direction'])
+print(resoult['words_result_num'])
+print(resoult['words_result'])
+print(resoult['words_result'][0])

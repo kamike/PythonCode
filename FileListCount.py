@@ -11,7 +11,7 @@ total_count = 0
 space_count = 0
 
 # 文件路径后面必须带\\
-fileDir = "G:\\python_data\\my_test\\giiiplus\\utils\\";
+fileDir = "G:\\python_data\\my_test\\giiiplus\\sql\\";
 
 
 def forFirle(prentDir):
